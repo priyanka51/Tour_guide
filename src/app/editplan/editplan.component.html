@@ -1,0 +1,61 @@
+<div class="container">
+  <h4>Select package Days</h4>
+  <mat-form-field>
+    <mat-label>Package Duration</mat-label>
+    <mat-select [(ngModel)]="selected1" (ngModelChange)=" onSelectedDuration($event)" placeholder="Duration"
+      [(value)]="selected1">
+      <mat-option>None</mat-option>
+      <mat-option *ngFor="let duration of duration" [value]="duration.value">
+        {{duration.viewValue}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <!--{{selected1}}-->
+
+</div>
+
+<br>
+<br>
+<br>
+
+<div class="viewplaces">
+  <h1>Edit Plan</h1>
+</div>
+<style>
+  table,
+  td,
+  th {
+    border: 1px solid black;
+  }
+
+  table {
+    border-collapse: collapse;
+    width: 90%;
+  }
+
+  th {
+    height: 50 px;
+  }
+</style>
+<table id="places">
+  <tr>
+    <th>SNO</th>
+    <th>CITY</th>
+    <th>CATEGORY</th>
+    <th>PLACES</th>
+    <th>DURATION</th>
+    <th>OPTIONS</th>
+  </tr>
+
+  <tr *ngFor="let lst of list">
+    <td>{{lst.city_Id}}</td>
+    <td>{{lst.city}}</td>
+    <td>{{lst.category}}</td>
+    <td>{{lst.places}}</td>
+    <td>{{lst.duration}}</td>
+    <td>
+      <button (click)='edit()'>EDIT</button>
+      <button (click)='delete()'>DELETE</button>
+    </td>
+  </tr>
+  </table>
